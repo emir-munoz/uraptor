@@ -11,9 +11,9 @@ import java.io.Reader;
 import java.net.URISyntaxException;
 import java.util.zip.GZIPInputStream;
 
-import org.ki2na.ld4ie.model.CrawledHtmlPage;
-import org.ki2na.ld4ie.model.CrawledHtmlPage.CrawledHtmlPageBuilder;
-import org.ki2na.ld4ie.model.HtmlCollection;
+import org.ki2na.ld4ie.io.model.CrawledHtmlPage;
+import org.ki2na.ld4ie.io.model.HtmlCollection;
+import org.ki2na.ld4ie.io.model.CrawledHtmlPage.CrawledHtmlPageBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -75,7 +75,7 @@ public class HtmlInputReader
 	}
 
 	/**
-	 * Read the contents of the train/test file
+	 * Read the contents of the train/test file.
 	 */
 	public void read()
 	{
@@ -86,7 +86,8 @@ public class HtmlInputReader
 		{
 			Reader decoder = null;
 			InputStream fileStream = null;
-			/** set reader according to the extension */
+
+			// set reader according to the extension
 			if (filename.endsWith(".gz"))
 			{
 				fileStream = new FileInputStream(filename);
@@ -136,11 +137,20 @@ public class HtmlInputReader
 		}
 	}
 
+	/**
+	 * @return Number of read documents.
+	 */
 	public int getCount()
 	{
 		return this.docs.getCount();
 	}
 
+	/**
+	 * Get document at position <code>index</code>
+	 * 
+	 * @param index Index of the document.
+	 * @return document.
+	 */
 	public CrawledHtmlPage get(int index)
 	{
 		return this.docs.get(index);

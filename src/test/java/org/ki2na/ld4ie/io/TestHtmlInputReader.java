@@ -7,6 +7,7 @@ import org.junit.Test;
  * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
  * @since 13/08/2014
+ * @version 0.0.1
  * 
  */
 public class TestHtmlInputReader

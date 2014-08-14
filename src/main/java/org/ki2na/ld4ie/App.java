@@ -16,6 +16,5 @@ public class App
 
 		for (int i = 0; i < reader.getCount(); i++)
 			System.out.println(reader.get(i));
-		
 	}
 }

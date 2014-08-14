@@ -1,20 +1,15 @@
-package org.ki2na.ld4ie;
+package org.ki2na.ld4ie.extractor;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.charset.Charset;
 import java.util.List;
-import java.util.Scanner;
 
 import org.apache.any23.extractor.ExtractionException;
 import org.apache.any23.extractor.SingleDocumentExtraction;
 import org.apache.any23.extractor.html.HCardExtractorFactory;
 import org.apache.any23.source.StringDocumentSource;
 import org.apache.any23.writer.RepositoryWriter;
-import org.ki2na.ld4ie.io.HtmlInputReader;
+import org.ki2na.ld4ie.util.RDFFormatUtils;
 import org.openrdf.model.Resource;
 import org.openrdf.model.Statement;
 import org.openrdf.model.Value;
@@ -22,9 +17,6 @@ import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.RepositoryResult;
 import org.openrdf.repository.sail.SailRepository;
-import org.openrdf.rio.RDFFormat;
-import org.openrdf.rio.RDFHandlerException;
-import org.openrdf.rio.Rio;
 import org.openrdf.sail.Sail;
 import org.openrdf.sail.SailException;
 import org.openrdf.sail.memory.MemoryStore;
@@ -54,7 +46,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
  * @since 13/08/2014
- * @version 0.0.1
+ * @version 0.0.2
  * 
  */
 public class HCardExtractor
@@ -86,7 +78,7 @@ public class HCardExtractor
 	 * @param content HTML page as string.
 	 * @param baseURI URI of the web page.
 	 */
-	private void extract(String content, URI baseURI)
+	public void extract(String content, URI baseURI)
 	{
 		/* First method - using directly the string source */
 		StringDocumentSource source = new StringDocumentSource(content, baseURI.toString());
@@ -125,7 +117,7 @@ public class HCardExtractor
 	 * @return list of statements.
 	 * @throws RepositoryException
 	 */
-	protected RepositoryResult<Statement> getStatements(Resource s, org.openrdf.model.URI p, Value o)
+	private RepositoryResult<Statement> getStatements(Resource s, org.openrdf.model.URI p, Value o)
 			throws RepositoryException
 	{
 		return conn.getStatements(s, p, o, false);
@@ -136,14 +128,14 @@ public class HCardExtractor
 	 * 
 	 * @throws RepositoryException
 	 */
-	private void showStatements() throws RepositoryException
+	public void showStatements() throws RepositoryException
 	{
 		RepositoryResult<Statement> statements = this.getStatements(null, null, null);
 
 		if (statements.hasNext())
-			System.out.println("Conn contains elements");
+			_log.info("Conn object does contains elements");
 		else
-			System.out.println("Conn does not contains elements");
+			_log.info("Conn object does not contains elements");
 
 		while (statements.hasNext())
 			System.out.println(statements.next().toString());
@@ -189,19 +181,6 @@ public class HCardExtractor
 	}
 
 	/**
-	 * Read a file from path and convert it into string.
-	 * 
-	 * @param path path to the file.
-	 * @param encoding encoding to use.
-	 * @return A string version of the input file.
-	 * @throws IOException
-	 */
-	public String readFile(String path, Charset encoding) throws IOException
-	{
-		return new Scanner(new File(path), "UTF-8").useDelimiter("\\A").next();
-	}
-
-	/**
 	 * Dumps the extracted model in <i>Turtle</i> format.
 	 * 
 	 * @return a string containing the model in Turtle.
@@ -210,15 +189,7 @@ public class HCardExtractor
 	protected String dumpModelToTurtle() throws RepositoryException
 	{
 		System.out.println("### Dump Model To Turtle ###");
-		StringWriter w = new StringWriter();
-		try
-		{
-			conn.export(Rio.createWriter(RDFFormat.TURTLE, w));
-			return w.toString();
-		} catch (RDFHandlerException ex)
-		{
-			throw new RuntimeException(ex);
-		}
+		return RDFFormatUtils.dumpModelToTurtle(conn);
 	}
 
 	/**
@@ -230,15 +201,7 @@ public class HCardExtractor
 	protected String dumpModelToNQuads() throws RepositoryException
 	{
 		System.out.println("### Dump Model To NQuads ###");
-		StringWriter w = new StringWriter();
-		try
-		{
-			conn.export(Rio.createWriter(RDFFormat.NQUADS, w));
-			return w.toString();
-		} catch (RDFHandlerException ex)
-		{
-			throw new RuntimeException(ex);
-		}
+		return RDFFormatUtils.dumpModelToNQuads(conn);
 	}
 
 	/**
@@ -250,33 +213,19 @@ public class HCardExtractor
 	protected String dumpModelToRDFXML() throws RepositoryException
 	{
 		System.out.println("### Dump Model To RDF/XML ###");
-		StringWriter w = new StringWriter();
-		try
-		{
-			conn.export(Rio.createWriter(RDFFormat.RDFXML, w));
-			return w.toString();
-		} catch (RDFHandlerException ex)
-		{
-			throw new RuntimeException(ex);
-		}
+		return RDFFormatUtils.dumpModelToRDFXML(conn);
 	}
 
 	/**
+	 * Dumps the extracted model into a list of human readable statements.
+	 * 
 	 * @return string containing human readable statements.
 	 * @throws RepositoryException
 	 */
 	protected String dumpHumanReadableTriples() throws RepositoryException
 	{
 		System.out.println("### Dump Human Readable Triples ###");
-		StringBuilder sb = new StringBuilder();
-		RepositoryResult<Statement> result = conn.getStatements(null, null, null, false);
-		while (result.hasNext())
-		{
-			Statement statement = result.next();
-			sb.append(String.format("%s %s %s %s\n", statement.getSubject(), statement.getPredicate(),
-					statement.getObject(), statement.getContext()));
-		}
-		return sb.toString();
+		return RDFFormatUtils.dumpHumanReadableTriples(conn);
 	}
 
 	/**
@@ -300,36 +249,6 @@ public class HCardExtractor
 	{
 		conn.close();
 		conn = null;
-	}
-
-	public static void main(String[] args) throws SailException, RepositoryException, IOException, URISyntaxException
-	{
-		HCardExtractor hCard = new HCardExtractor();
-
-		HtmlInputReader reader = new HtmlInputReader("data/train1.html.txt.gz");
-		reader.read();
-		System.out.println(reader.getCount() + " documents found!");
-		// System.out.println(reader.get(2));
-
-		// String content = hCard.readFile("data/23-abbr-title-everything.html",
-		// Charset.forName("UTF-8"));
-		// String content = hCard.readFile("data/example-mf-hcard.html", Charset.forName("UTF-8"));
-		// System.out.println(content);
-		// URI baseURI = new URI("http://example.com/");
-		// hCard.extract(content, baseURI);
-
-		// test extraction for first document
-		int index = 2;
-		hCard.extract(reader.get(index).getContent(), reader.get(index).getURI());
-
-		if (hCard.isModelEmpty())
-			System.out.println("model is empty");
-
-		// hCard.showStatements();
-		System.out.println(hCard.dumpModelToNQuads());
-
-		// close
-		hCard.tearDown();
 	}
 
 }

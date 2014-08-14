@@ -1,4 +1,4 @@
-package org.ki2na.ld4ie.model;
+package org.ki2na.ld4ie.io.model;
 
 import java.net.URISyntaxException;
 
@@ -7,16 +7,26 @@ import java.net.URISyntaxException;
  * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
  * @since 13/08/2014
- * @version 0.0.2
+ * @version 0.0.3
  * 
  */
 public class CrawledHtmlPage
 {
 
+	/** web page URI */
 	private java.net.URI URI;
+	/** Content-type of the web page */
 	private String contentType;
+	/** HTML code of the web page */
 	private String content;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param URI Web page URI.
+	 * @param type Content-type.
+	 * @param content HTML code.
+	 */
 	public CrawledHtmlPage(final java.net.URI URI, final String type, final String content)
 	{
 		this.URI = URI;
@@ -24,16 +34,25 @@ public class CrawledHtmlPage
 		this.content = content;
 	}
 
+	/**
+	 * @return URI of the web page.
+	 */
 	public java.net.URI getURI()
 	{
 		return URI;
 	}
 
+	/**
+	 * @return Content-type of the web page.
+	 */
 	public String getContentType()
 	{
 		return contentType;
 	}
 
+	/**
+	 * @return HTML code of the web page.
+	 */
 	public String getContent()
 	{
 		return content;
@@ -60,6 +79,7 @@ public class CrawledHtmlPage
 	 * Crawled HTML Page Builder.
 	 * 
 	 * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
+	 * @since 13/08/2014
 	 * 
 	 */
 	public static class CrawledHtmlPageBuilder
