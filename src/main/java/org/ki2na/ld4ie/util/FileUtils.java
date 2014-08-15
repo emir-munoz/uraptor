@@ -6,7 +6,7 @@ import java.nio.charset.Charset;
 import java.util.Scanner;
 
 /**
- * File Utils.
+ * Helper class for file utils.
  * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
  * @version 0.0.1
@@ -14,6 +14,13 @@ import java.util.Scanner;
  */
 public class FileUtils
 {
+
+	/**
+	 * Utility class should not be instantiatable.
+	 */
+	private FileUtils()
+	{
+	}
 
 	/**
 	 * Read a file from path and convert it into string.
