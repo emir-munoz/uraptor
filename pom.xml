@@ -71,6 +71,12 @@
 			<artifactId>apache-any23-core</artifactId>
 			<version>1.0</version>
 		</dependency>
+		<!-- HtmlCleaner -->
+		<dependency>
+			<groupId>net.sourceforge.htmlcleaner</groupId>
+			<artifactId>htmlcleaner</artifactId>
+			<version>2.9</version>
+		</dependency>
 	</dependencies>
 
 	<build>
