@@ -1,9 +1,12 @@
 package org.ki2na.ld4ie.util;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Scanner;
+
+import org.apache.commons.io.IOUtils;
 
 /**
  * Helper class for file utils.
@@ -33,6 +36,14 @@ public class FileUtils
 	public static String readFile(String path, Charset encoding) throws IOException
 	{
 		return new Scanner(new File(path), "UTF-8").useDelimiter("\\A").next();
+	}
+
+	public static String readFile2(String path, Charset encoding) throws IOException
+	{
+		FileInputStream is = new FileInputStream(path);
+		String content = IOUtils.toString(is);
+		is.close();
+		return content;
 	}
 
 }

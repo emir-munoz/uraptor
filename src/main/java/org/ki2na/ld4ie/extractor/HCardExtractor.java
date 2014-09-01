@@ -57,6 +57,8 @@ public class HCardExtractor
 	// private static final VCard vVCARD = VCard.getInstance();
 	/** Internal connection used to collect extraction results. */
 	private RepositoryConnection conn;
+	/** Graph name */
+	private String graphName = "<ex:html-mf-hcard>  .";
 
 	/**
 	 * Constructor.
@@ -138,7 +140,9 @@ public class HCardExtractor
 			_log.info("Conn object does not contains elements");
 
 		while (statements.hasNext())
-			System.out.println(statements.next().toString());
+		{
+			System.out.println(statements.next().toString().replace(" .\n", graphName));
+		}
 	}
 
 	/**

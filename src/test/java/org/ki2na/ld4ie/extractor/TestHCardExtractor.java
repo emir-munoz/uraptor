@@ -1,10 +1,15 @@
 package org.ki2na.ld4ie.extractor;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.charset.Charset;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.ki2na.ld4ie.io.HtmlInputReader;
+import org.ki2na.ld4ie.util.FileUtils;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.sail.SailException;
 
@@ -36,7 +41,8 @@ public class TestHCardExtractor
 	}
 
 	@Test
-	public void extract() throws RepositoryException
+	@Ignore
+	public void extractFromCorpus() throws RepositoryException
 	{
 		// HCardExtractor hCard = new HCardExtractor();
 
@@ -53,7 +59,9 @@ public class TestHCardExtractor
 		// hCard.extract(content, baseURI);
 
 		// test extraction for first document
-		int index = 2;
+		int index = 0;
+		System.out.println(String.format("%s %s", reader.get(index).getContent(), reader.get(index).getURI()));
+
 		hCard.extract(reader.get(index).getContent(), reader.get(index).getURI());
 
 		if (hCard.isModelEmpty())
@@ -65,5 +73,22 @@ public class TestHCardExtractor
 		// close
 		hCard.tearDown();
 	}
-	
+
+	@Test
+	public void extractFromFile() throws URISyntaxException, IOException, RepositoryException
+	{
+		String content = FileUtils.readFile2("data/trainCorpus3/0.html", Charset.forName("UTF-8"));
+		System.out.println(content);
+		hCard.extract(content, new URI("http://0016304756.blogspot.ru/"));
+
+		if (hCard.isModelEmpty())
+			System.out.println("model is empty");
+
+		// hCard.showStatements();
+		System.out.println(hCard.dumpModelToNQuads());
+
+		// close
+		hCard.tearDown();
+	}
+
 }
