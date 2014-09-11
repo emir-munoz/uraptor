@@ -8,12 +8,19 @@ import org.ki2na.ld4ie.extractor.HtmlCleaner;
 import org.ki2na.ld4ie.io.HtmlInputReader;
 
 /**
+ * Generate the training set corpus.
+ * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
+ * @version 0.0.1
+ * @since 01/09/2014
  * 
  */
-public class TrainSerGenerator
+public class TrainSetGenerator
 {
 
+	/**
+	 * Main method.
+	 */
 	public static void main(String[] args) throws IOException
 	{
 		HtmlCleaner cleaner = new HtmlCleaner();
@@ -26,7 +33,8 @@ public class TrainSerGenerator
 		{
 			System.out.println(reader.get(i));
 			htmlTemplateFile = new File("./data/trainCorpus3/" + i + ".html");
-			FileUtils.writeStringToFile(htmlTemplateFile, cleaner.annotate(reader.get(i).getContent()));
+			FileUtils.writeStringToFile(htmlTemplateFile,
+					cleaner.annotate(reader.get(i).getContent(), reader.get(i).getURI().toString()));
 		}
 	}
 

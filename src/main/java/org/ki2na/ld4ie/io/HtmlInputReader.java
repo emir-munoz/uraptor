@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
  * @since 13/08/2014
- * @version 0.0.1
+ * @version 0.0.2
  * 
  */
 public class HtmlInputReader
@@ -50,7 +50,7 @@ public class HtmlInputReader
 	private HtmlCollection docs;
 
 	/**
-	 * Constructor.
+	 * Class constructor.
 	 * 
 	 * @param filename Path to the file.
 	 */
@@ -58,7 +58,7 @@ public class HtmlInputReader
 	{
 		this.filename = filename;
 		this.encoding = "UTF-8";
-		docs = new HtmlCollection();
+		this.docs = new HtmlCollection();
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class HtmlInputReader
 	{
 		this.filename = filename;
 		this.encoding = encoding;
-		docs = new HtmlCollection();
+		this.docs = new HtmlCollection();
 	}
 
 	/**
@@ -80,6 +80,7 @@ public class HtmlInputReader
 	public void read()
 	{
 		_log.info("Reading from file '{}'...", filename);
+
 		String NL = System.getProperty("line.separator");
 		String line = null;
 		try

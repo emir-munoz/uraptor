@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class HtmlCollection extends ArrayList<CrawledHtmlPage>
 {
 
-	/** serial number */
+	/** Serial number */
 	private static final long serialVersionUID = 5144106476020583481L;
-	/** number of elements */
+	/** Number of elements */
 	private int count = 0;
 
 	/**

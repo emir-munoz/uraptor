@@ -8,6 +8,7 @@ import org.ki2na.ld4ie.extractor.HtmlCleaner;
 import org.ki2na.ld4ie.io.HtmlInputReader;
 
 /**
+ * Generate the clean set of pages.
  * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
  * @version 0.0.1
@@ -18,10 +19,7 @@ public class CleanSetGenerator
 {
 
 	/**
-	 * Main.
-	 * 
-	 * @param args
-	 * @throws IOException
+	 * Main method.
 	 */
 	public static void main(String[] args) throws IOException
 	{

@@ -13,7 +13,7 @@ import java.net.URISyntaxException;
 public class CrawledHtmlPage
 {
 
-	/** web page URI */
+	/** Web page URI */
 	private java.net.URI URI;
 	/** Content-type of the web page */
 	private String contentType;
@@ -21,7 +21,7 @@ public class CrawledHtmlPage
 	private String content;
 
 	/**
-	 * Constructor.
+	 * Class constructor.
 	 * 
 	 * @param URI Web page URI.
 	 * @param type Content-type.

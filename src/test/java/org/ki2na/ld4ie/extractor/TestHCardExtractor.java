@@ -18,7 +18,7 @@ import org.openrdf.sail.SailException;
  * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
  * @since 14/08/2014
- * @version 0.0.1
+ * @version 0.0.2
  * 
  */
 public class TestHCardExtractor
@@ -41,12 +41,11 @@ public class TestHCardExtractor
 	}
 
 	@Test
-	@Ignore
 	public void extractFromCorpus() throws RepositoryException
 	{
 		// HCardExtractor hCard = new HCardExtractor();
 
-		HtmlInputReader reader = new HtmlInputReader("data/train1.html.txt.gz");
+		HtmlInputReader reader = new HtmlInputReader("data/train1.clean.html.txt.gz");
 		reader.read();
 		System.out.println(reader.getCount() + " documents found!");
 		// System.out.println(reader.get(2));
@@ -59,7 +58,7 @@ public class TestHCardExtractor
 		// hCard.extract(content, baseURI);
 
 		// test extraction for first document
-		int index = 0;
+		int index = 1460;
 		System.out.println(String.format("%s %s", reader.get(index).getContent(), reader.get(index).getURI()));
 
 		hCard.extract(reader.get(index).getContent(), reader.get(index).getURI());
@@ -75,10 +74,11 @@ public class TestHCardExtractor
 	}
 
 	@Test
+	@Ignore
 	public void extractFromFile() throws URISyntaxException, IOException, RepositoryException
 	{
 		String content = FileUtils.readFile2("data/trainCorpus3/0.html", Charset.forName("UTF-8"));
-		System.out.println(content);
+		// System.out.println(content);
 		hCard.extract(content, new URI("http://0016304756.blogspot.ru/"));
 
 		if (hCard.isModelEmpty())

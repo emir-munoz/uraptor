@@ -45,8 +45,8 @@ import org.slf4j.LoggerFactory;
  * </p>
  * 
  * @author Emir Munoz (Emir.Munoz@ie.fujitsu.com)
- * @since 13/08/2014
  * @version 0.0.2
+ * @since 13/08/2014
  * 
  */
 public class HCardExtractor
@@ -192,7 +192,7 @@ public class HCardExtractor
 	 */
 	protected String dumpModelToTurtle() throws RepositoryException
 	{
-		System.out.println("### Dump Model To Turtle ###");
+		// System.out.println("### Dump Model To Turtle ###");
 		return RDFFormatUtils.dumpModelToTurtle(conn);
 	}
 
@@ -202,9 +202,9 @@ public class HCardExtractor
 	 * @return a string containing the model in NQuads.
 	 * @throws RepositoryException
 	 */
-	protected String dumpModelToNQuads() throws RepositoryException
+	public String dumpModelToNQuads() throws RepositoryException
 	{
-		System.out.println("### Dump Model To NQuads ###");
+		// System.out.println("### Dump Model To NQuads ###");
 		return RDFFormatUtils.dumpModelToNQuads(conn);
 	}
 
@@ -216,7 +216,7 @@ public class HCardExtractor
 	 */
 	protected String dumpModelToRDFXML() throws RepositoryException
 	{
-		System.out.println("### Dump Model To RDF/XML ###");
+		// System.out.println("### Dump Model To RDF/XML ###");
 		return RDFFormatUtils.dumpModelToRDFXML(conn);
 	}
 
@@ -228,7 +228,7 @@ public class HCardExtractor
 	 */
 	protected String dumpHumanReadableTriples() throws RepositoryException
 	{
-		System.out.println("### Dump Human Readable Triples ###");
+		// System.out.println("### Dump Human Readable Triples ###");
 		return RDFFormatUtils.dumpHumanReadableTriples(conn);
 	}
 
