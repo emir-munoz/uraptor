@@ -3,6 +3,8 @@
 .project
 target/
 data/
+ml/
 evaluation/
+examples/
 *.gz
 *.nq
