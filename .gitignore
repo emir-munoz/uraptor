@@ -3,5 +3,6 @@
 .project
 target/
 data/
+evaluation/
 *.gz
 *.nq

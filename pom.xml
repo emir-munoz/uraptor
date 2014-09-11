@@ -45,11 +45,6 @@
 	<dependencies>
 		<!-- Logging Dependencies -->
 		<dependency>
-			<groupId>org.ini4j</groupId>
-			<artifactId>ini4j</artifactId>
-			<version>0.5.2</version>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.5</version>
@@ -70,12 +65,6 @@
 			<groupId>org.apache.any23</groupId>
 			<artifactId>apache-any23-core</artifactId>
 			<version>1.0</version>
-		</dependency>
-		<!-- HtmlCleaner -->
-		<dependency>
-			<groupId>net.sourceforge.htmlcleaner</groupId>
-			<artifactId>htmlcleaner</artifactId>
-			<version>2.9</version>
 		</dependency>
 		<!-- JSOUP -->
 		<dependency>
