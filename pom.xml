@@ -6,8 +6,10 @@
 	<artifactId>ld4ie-challenge</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>ld4ie-challenge</name>
-	<url>https://bitbucket.org/emir-munoz/ld4ie-challenge</url>
+
+	<name>LD4IE challenge - MicroRaptor</name>
+	<url>https://github.com/emir-munoz/uraptor</url>
+	<inceptionYear>2014</inceptionYear>
 
 	<organization>
 		<name>Fujitsu Ireland Limited</name>
@@ -24,6 +26,26 @@
 			<organizationUrl>http://ie.fujitsu.com</organizationUrl>
 			<roles>
 				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>0</timezone>
+		</developer>
+		<developer>
+			<id>pierre-yves.vandenbussche</id>
+			<name>Pierre-Yves Vandenbussche</name>
+			<organization>Fujitsu Ireland Limited</organization>
+			<organizationUrl>http://ie.fujitsu.com</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>0</timezone>
+		</developer>
+		<developer>
+			<id>luca.costabello</id>
+			<name>Luca Costabello</name>
+			<organization>Fujitsu Ireland Limited</organization>
+			<organizationUrl>http://ie.fujitsu.com</organizationUrl>
+			<roles>
 				<role>developer</role>
 			</roles>
 			<timezone>0</timezone>
@@ -72,9 +94,21 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.7.3</version>
 		</dependency>
+		<!-- challengeValidation -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>2.10.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>ld4ie</finalName>
 		<plugins>
 			<!-- set java version to 1.6 -->
 			<plugin>
@@ -85,6 +119,73 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>1.3</version>
+				<configuration>
+					<repositoryLayout>flat</repositoryLayout>
+					<repositoryName>lib</repositoryName>
+					<installArtifacts>false</installArtifacts>
+					<programs>
+						<program>
+							<mainClass>org.ld4ie.cli.ChallengeValidator</mainClass>
+							<name>challengeValidator</name>
+						</program>
+					</programs>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>assemble</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

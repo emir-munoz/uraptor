@@ -63,4 +63,10 @@ public class TagAnnotation
 		this.property = property;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "TagAnn:{selector=" + this.selector + ",position=" + this.position + ",property=" + this.property + "}";
+	}
+
 }

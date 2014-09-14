@@ -58,9 +58,18 @@ public class VcardDomDetector
 	private void initRules()
 	{
 		List<CssRule> _rules = Lists.newArrayList();
-		// -------------#8
 		List<TagAnnotation> tagAnn = Lists.newArrayList();
-		tagAnn.clear();
+
+		// -------------#21
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("td", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("td > span", 1, "fn org"));
+		tagAnn.add(new TagAnnotation("td > div", 1, "adr"));
+		tagAnn.add(new TagAnnotation("td > div > span", 1, "locality"));
+		tagAnn.add(new TagAnnotation("td > div > span", 2, "region"));
+		_rules.add(new CssRule("td.location > div > span + span", 2, tagAnn));
+		// -------------#8
+		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
 		tagAnn.add(new TagAnnotation("div > a", 1, "url"));
 		tagAnn.add(new TagAnnotation("div > a > span", 2, "fn"));
@@ -72,6 +81,13 @@ public class VcardDomDetector
 																						// includes
 		// (6)
 		// rules.add(new CssRule("div > a > span > span > span", 4)); // (8) --> too generic
+		// -------------#30
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > p", 1, "info"));
+		tagAnn.add(new TagAnnotation("div > p > strong", 1, "fn"));
+		tagAnn.add(new TagAnnotation("div > strong > a > span > img", 1, "photo"));
+		_rules.add(new CssRule("div.listeningRecent > strong > a > span > img", 4, tagAnn));
 		// -------------#6
 		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
@@ -99,6 +115,69 @@ public class VcardDomDetector
 		_rules.add(new CssRule("div.comment-author > p > span > a", 3, tagAnn)); // (1) ######
 		// rules.add(new CssRule("div.avatar-image-container > span > a > img + img", 3)); // (1)
 		// optional
+		// -------------#18
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > span > span", 1, "fn"));
+		tagAnn.add(new TagAnnotation("div > span > div", 1, "adr"));
+		tagAnn.add(new TagAnnotation("div > span > div > div", 1, "locality"));
+		// tagAnn.add(new TagAnnotation("div > span > div > div", 1, "locality"));
+		_rules.add(new CssRule("div.reviewer > span > div > span + div", 3, tagAnn));
+		// -------------#27
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > div > h4", 1, "org fn"));
+		tagAnn.add(new TagAnnotation("div > div > p", 1, "tel"));
+		tagAnn.add(new TagAnnotation("div > div > p", 2, "adr"));
+		tagAnn.add(new TagAnnotation("div > div > p", 3, "dist"));
+		_rules.add(new CssRule("div.free-bottom > div > h4 + p + p + p", 2, tagAnn));
+		// -------------#33
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > img", 1, "photo"));
+		tagAnn.add(new TagAnnotation("div > span", 1, "fn"));
+		tagAnn.add(new TagAnnotation("div > span > a", 1, "url"));
+		_rules.add(new CssRule("div.comment-author > img + span > a", 2, tagAnn));
+		// -------------#19
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > img", 1, "photo"));
+		tagAnn.add(new TagAnnotation("div > span", 1, "fn"));
+		_rules.add(new CssRule("div.comment-author > img + span + a", 1, tagAnn));
+		// -------------#20
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > cite", 1, "fn"));
+		tagAnn.add(new TagAnnotation("div > cite > a", 1, "url"));
+		_rules.add(new CssRule("div.comment-author > cite > a", 2, tagAnn));
+		_rules.add(new CssRule("div.social-comment-author > cite > a", 2, tagAnn));
+		// // -------------#25
+		// tagAnn = Lists.newArrayList();
+		// tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		// tagAnn.add(new TagAnnotation("div > div", 1, "fn org"));
+		// tagAnn.add(new TagAnnotation("div > div", 2, "tel"));
+		// tagAnn.add(new TagAnnotation("div > div", 3, "fax"));
+		// tagAnn.add(new TagAnnotation("div > a", 1, "email"));
+		// _rules.add(new CssRule("div > div + div + div + a", 1, tagAnn));
+		// -------------#22
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > img", 1, "photo"));
+		tagAnn.add(new TagAnnotation("div > cite", 1, "fn"));
+		tagAnn.add(new TagAnnotation("div > cite > a", 1, "url"));
+		_rules.add(new CssRule("div.comment-author > img + cite > a", 2, tagAnn));
+		// -------------#15
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > cite", 1, "fn"));
+		_rules.add(new CssRule("div.comment-author > img + cite", 1, tagAnn)); // (15) --> includes
+																				// (14)
+		// -------------#31
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > cite", 1, "fn"));
+		tagAnn.add(new TagAnnotation("div > cite > a", 1, "url"));
+		_rules.add(new CssRule("div.comment-author > cite > a", 2, tagAnn));
 		// -------------#4
 		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
@@ -106,18 +185,24 @@ public class VcardDomDetector
 		tagAnn.add(new TagAnnotation("div > cite", 1, "fn"));
 		_rules.add(new CssRule("div.comment-author > img + cite + span", 1, tagAnn)); // (4)
 		// rules.add(new CssRule("div > img + cite + span", 1)); // (4) --> too general
-		// -------------#15
+		// -------------#28
 		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
-		tagAnn.add(new TagAnnotation("div > cite", 1, "fn"));
-		_rules.add(new CssRule("div.comment-author > img + cite", 1, tagAnn)); // (15) --> includes
-																				// (14)
+		tagAnn.add(new TagAnnotation("div > img", 1, "photo"));
+		tagAnn.add(new TagAnnotation("div > span", 1, "fn"));
+		_rules.add(new CssRule("div.comment-author > img + span + span", 1, tagAnn));
 		// -------------#9
 		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
 		tagAnn.add(new TagAnnotation("div > cite", 1, "fn"));
 		_rules.add(new CssRule("div.comment-author > cite + span", 1, tagAnn)); // (9)
 		_rules.add(new CssRule("div.social-comment-author > cite + span", 1, tagAnn)); // (9)
+		// -------------#32
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("div > img", 1, "photo"));
+		tagAnn.add(new TagAnnotation("div > span", 1, "author"));
+		_rules.add(new CssRule("div.comment-author > img + span", 1, tagAnn));
 		// -------------#10
 		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("div", 1, "vcard"));
@@ -131,6 +216,14 @@ public class VcardDomDetector
 		tagAnn.add(new TagAnnotation("span > span > a", 1, "author profile"));
 		// _rules.add(new CssRule("span > span > a > span", 3)); // (5)
 		_rules.add(new CssRule("span.post-author > span > a > span", 3, tagAnn)); // (5) optional
+		// -------------#34
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("span", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("span > span", 1, "fn org"));
+		tagAnn.add(new TagAnnotation("span > span", 2, "adr"));
+		tagAnn.add(new TagAnnotation("span > span > span", 1, "locality"));
+		tagAnn.add(new TagAnnotation("span > span > span", 2, "region"));
+		_rules.add(new CssRule("span.location > span + span > span + span", 2, tagAnn));
 		// -------------#12
 		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("span", 1, "vcard"));
@@ -144,6 +237,28 @@ public class VcardDomDetector
 		_rules.add(new CssRule("span.author > a > span", 2, tagAnn)); // (13)
 		// rules.add(new CssRule("span > a > span", 3)); // (13) // --> too generic and only few
 		// cases
+		// -------------#17
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("span", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("span > cite", 1, "fn"));
+		tagAnn.add(new TagAnnotation("span > cite > a", 1, "url"));
+		_rules.add(new CssRule("span.comment-author > cite > a", 2, tagAnn));
+		// // -------------#29
+		// tagAnn = Lists.newArrayList();
+		// tagAnn.add(new TagAnnotation("span", 1, "vcard"));
+		// tagAnn.add(new TagAnnotation("span > cite", 1, "fn"));
+		// tagAnn.add(new TagAnnotation("span > cite > a", 1, "url"));
+		// _rules.add(new CssRule("span.comment-author > cite > a", 2, tagAnn));
+		// -------------#35
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("span", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("span > cite", 1, "fn"));
+		_rules.add(new CssRule("span.comment-author > cite + span", 1, tagAnn));
+		// -------------#16
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("span", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("span > cite", 1, "fn"));
+		_rules.add(new CssRule("span.author > cite", 1, tagAnn));
 		// -------------#2
 		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("span", 1, "vcard"));
@@ -160,8 +275,17 @@ public class VcardDomDetector
 		_rules.add(new CssRule("span.author > span", 1, tagAnn)); // (3) -->includes (5)(11)(12)
 		_rules.add(new CssRule("span.post-author > span", 1, tagAnn)); // (3) optional
 		_rules.add(new CssRule("span.source-org > span", 1, tagAnn)); // (3) optional
-		// -------------#7
-		// rules.add(new CssRule("span", 1)); // (7) --> too generic
+		// // -------------#7
+		// tagAnn = Lists.newArrayList();
+		// tagAnn.add(new TagAnnotation("span", 1, "vcard fn"));
+		// _rules.add(new CssRule("span.author", 1, tagAnn));
+		// _rules.add(new CssRule("span.contributor", 1, tagAnn));
+		// _rules.add(new CssRule("span.source-org", 1, tagAnn));
+		// _rules.add(new CssRule("span.author-name", 1, tagAnn));
+		// // -------------#26
+		// tagAnn = Lists.newArrayList();
+		// tagAnn.add(new TagAnnotation("span", 1, "vcard fn"));
+		// _rules.add(new CssRule("span.post-author", 1, tagAnn));
 		// -------------#11
 		// rules.add(new CssRule("span > span", 2)); // (11) --> same as (3)
 		rules.addAll(_rules);
@@ -210,7 +334,8 @@ public class VcardDomDetector
 
 				// validate that the element is a <div> or <span> (optional). Annotate the vCard
 				// candidate with the properties indicated by the rule.
-				if (parent.nodeName().equals("div") || parent.nodeName().equals("span"))
+				if (parent.nodeName().equals("div") || parent.nodeName().equals("span")
+						|| parent.nodeName().equals("td"))
 				{
 					// if the vCard has not been visited yet; else vCard visited already
 					if (!parent.hasClass("em_visited"))
@@ -237,6 +362,8 @@ public class VcardDomDetector
 	 */
 	public String annotateVcard(Element parent, CssRule rule)
 	{
+		// System.out.println(rule.getPath() + " -- " + rule.getAnnotations());
+		// System.out.println(parent.toString());
 		List<TagAnnotation> anList = rule.getAnnotations();
 		Elements root;
 		Element ele;
@@ -245,8 +372,12 @@ public class VcardDomDetector
 		for (TagAnnotation annotation : anList)
 		{
 			root = parent.select(annotation.getSelector());
-			ele = root.get(annotation.getPosition() - 1);
-			ele.addClass(annotation.getProperty());
+			try
+			{
+				ele = root.get(annotation.getPosition() - 1);
+				ele.addClass(annotation.getProperty());
+			} catch (Exception e)
+			{}
 		}
 
 		return parent.html();
@@ -262,7 +393,7 @@ public class VcardDomDetector
 	public void runExtraction(PrintWriter extlog, PrintWriter nquads) throws RepositoryException
 	{
 		// For each document check all rules
-		// int numDocs = 1481;
+		// int numDocs = 125;
 		int numDocs = reader.getCount();
 		HCardExtractor hCard;
 		String htmlAnnotated;
@@ -302,14 +433,14 @@ public class VcardDomDetector
 	{
 		// String filename = "data/train1.html.txt.gz";
 		// String filename = "data/train4.html.txt.gz";
-		String filename = "data/test.clean.html.txt.gz";
+		String filename = "data/train4.clean.html.txt.gz";
 
 		_log.info("Starting the extraction from file {}", filename);
 		VcardDomDetector dd = new VcardDomDetector(filename);
 		dd.readCollection();
 
-		PrintWriter extlog = new PrintWriter("./data/test.out.txt");
-		PrintWriter nquads = new PrintWriter("./data/nquads/test.out.nq");
+		PrintWriter extlog = new PrintWriter("./data/train4.out.txt");
+		PrintWriter nquads = new PrintWriter("./data/nquads/train4.out.nq");
 		dd.runExtraction(extlog, nquads);
 
 		extlog.close();
