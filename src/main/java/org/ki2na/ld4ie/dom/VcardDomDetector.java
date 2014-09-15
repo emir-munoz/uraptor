@@ -13,6 +13,7 @@ import org.ki2na.ld4ie.extractor.HtmlCleaner;
 import org.ki2na.ld4ie.extractor.model.CssRule;
 import org.ki2na.ld4ie.io.HtmlInputReader;
 import org.ki2na.ld4ie.io.model.CrawledHtmlPage;
+import org.ki2na.ld4ie.util.FileUtils;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.sail.SailException;
 import org.slf4j.Logger;
@@ -60,6 +61,14 @@ public class VcardDomDetector
 		List<CssRule> _rules = Lists.newArrayList();
 		List<TagAnnotation> tagAnn = Lists.newArrayList();
 
+		// -------------#38
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("p", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("p > span", 1, "fn org"));
+		tagAnn.add(new TagAnnotation("p > span", 2, "adr"));
+		tagAnn.add(new TagAnnotation("p > span > span", 1, "locality"));
+		tagAnn.add(new TagAnnotation("p > span > span", 2, "region"));
+		_rules.add(new CssRule("p.location > span + br + span > span + span", 2, tagAnn));
 		// -------------#21
 		tagAnn = Lists.newArrayList();
 		tagAnn.add(new TagAnnotation("td", 1, "vcard"));
@@ -275,6 +284,15 @@ public class VcardDomDetector
 		_rules.add(new CssRule("span.author > span", 1, tagAnn)); // (3) -->includes (5)(11)(12)
 		_rules.add(new CssRule("span.post-author > span", 1, tagAnn)); // (3) optional
 		_rules.add(new CssRule("span.source-org > span", 1, tagAnn)); // (3) optional
+		// -------------#36
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("span", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("span > p", 1, "org fn"));
+		_rules.add(new CssRule("span.source-org > p", 1, tagAnn));
+		tagAnn = Lists.newArrayList();
+		tagAnn.add(new TagAnnotation("span", 1, "vcard"));
+		tagAnn.add(new TagAnnotation("span > p", 1, "fn"));
+		_rules.add(new CssRule("span.author > p", 1, tagAnn));
 		// // -------------#7
 		// tagAnn = Lists.newArrayList();
 		// tagAnn.add(new TagAnnotation("span", 1, "vcard fn"));
@@ -335,7 +353,7 @@ public class VcardDomDetector
 				// validate that the element is a <div> or <span> (optional). Annotate the vCard
 				// candidate with the properties indicated by the rule.
 				if (parent.nodeName().equals("div") || parent.nodeName().equals("span")
-						|| parent.nodeName().equals("td"))
+						|| parent.nodeName().equals("td") || parent.nodeName().equals("p"))
 				{
 					// if the vCard has not been visited yet; else vCard visited already
 					if (!parent.hasClass("em_visited"))
@@ -431,22 +449,24 @@ public class VcardDomDetector
 	 */
 	public static void main(String[] args) throws FileNotFoundException, RepositoryException
 	{
-		// String filename = "data/train1.html.txt.gz";
-		// String filename = "data/train4.html.txt.gz";
-		String filename = "data/train4.clean.html.txt.gz";
+		// String filename = "data/test.clean.html.txt.gz";
+		// String nquadsfile = "./data/nquads/test.out.nq";
+		String filename = args[0];
+		String nquadsfile = args[1];
 
 		_log.info("Starting the extraction from file {}", filename);
 		VcardDomDetector dd = new VcardDomDetector(filename);
 		dd.readCollection();
-
-		PrintWriter extlog = new PrintWriter("./data/train4.out.txt");
-		PrintWriter nquads = new PrintWriter("./data/nquads/train4.out.nq");
+		FileUtils.createDirectory("./data/", _log);
+		PrintWriter extlog = new PrintWriter("./data/test.out.txt");
+		PrintWriter nquads = new PrintWriter(nquadsfile);
 		dd.runExtraction(extlog, nquads);
 
+		// close files
 		extlog.close();
 		nquads.close();
 
-		_log.info("Extraction finished");
+		_log.info("Microformats extraction finished");
 	}
 
 }

@@ -1,5 +1,6 @@
 package org.ki2na.ld4ie.io;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -14,6 +15,7 @@ public class TestHtmlInputReader
 {
 
 	@Test
+	@Ignore
 	public void readData()
 	{
 		HtmlInputReader reader = new HtmlInputReader("data/train1.html.txt.gz");

@@ -41,6 +41,7 @@ public class TestHCardExtractor
 	}
 
 	@Test
+	@Ignore
 	public void extractFromCorpus() throws RepositoryException
 	{
 		// HCardExtractor hCard = new HCardExtractor();
