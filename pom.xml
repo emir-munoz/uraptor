@@ -8,13 +8,21 @@
 	<version>0.1-SNAPSHOT</version>
 
 	<name>LD4IE challenge - MicroRaptor</name>
+	<description>μRaptor: A DOM based system with appetite for hCard elements</description>
 	<url>https://github.com/emir-munoz/uraptor</url>
 	<inceptionYear>2014</inceptionYear>
-
 	<organization>
 		<name>Fujitsu Ireland Limited</name>
 		<url>http://ie.fujitsu.com</url>
 	</organization>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License v3.0</name>
+			<url>https://www.gnu.org/licenses/gpl.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<developers>
 		<developer>
@@ -52,16 +60,10 @@
 		</developer>
 	</developers>
 
-	<licenses>
-		<license>
-			<name>GNU General Public License v3.0</name>
-			<url>https://www.gnu.org/licenses/gpl.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
+	<!-- General properties -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
@@ -126,6 +128,7 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<!-- Generate source code -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -139,6 +142,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Generate documentation -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -194,6 +198,11 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 	</build>
 
 </project>
