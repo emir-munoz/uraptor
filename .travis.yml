@@ -1,5 +1,5 @@
 language: java
-script: "mvn verify -P fast -DskipTests=true"
+script: "mvn verify -P fast"
 jdk:
   - oraclejdk7
   - openjdk6
