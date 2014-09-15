@@ -1,4 +1,4 @@
-package org.ki2na.ld4ie;
+package org.ki2na.ld4ie.evaluation;
 
 import java.io.File;
 import java.io.FileNotFoundException;
