@@ -86,8 +86,6 @@ GNU General Public License v3.0
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Supports Java 1.6 and 1.7.
+Supports Java 1.7.
 
-<!--
 [![Build status](https://travis-ci.org/emir-munoz/uraptor.svg?branch=master)](https://travis-ci.org/emir-munoz/uraptor)
--->

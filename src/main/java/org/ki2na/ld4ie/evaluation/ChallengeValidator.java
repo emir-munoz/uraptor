@@ -18,8 +18,10 @@ import arq.cmdline.CmdGeneral;
 
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.DatasetFactory;
+import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -35,7 +37,7 @@ public class ChallengeValidator extends CmdGeneral
 {
 
 	/** class logger */
-	private final static Logger log = LoggerFactory.getLogger(ChallengeValidator.class);
+	private final static Logger log = LoggerFactory.getLogger(ChallengeValidator.class.getName());
 	private String participantNqFilePath;
 	private String targetNqFilePath;
 
@@ -209,7 +211,10 @@ public class ChallengeValidator extends CmdGeneral
 			args.add("subject", st.getSubject());
 		if (!st.getObject().isAnon())
 			args.add("object", st.getObject());
-		QueryExecution qe = QueryExecutionFactory.create(q, m, args);
+		// QueryExecution qe = QueryExecutionFactory.create(q, m, args);
+
+		Query query = QueryFactory.create(q);
+		QueryExecution qe = QueryExecutionFactory.create(query, m, args);
 
 		return qe.execAsk();
 	}
