@@ -50,6 +50,7 @@ public class FileUtils
 	 * @return A string version of the input file.
 	 * @throws IOException
 	 */
+	@SuppressWarnings("resource")
 	public static String readFile(String path, Charset encoding) throws IOException
 	{
 		return new Scanner(new File(path), "UTF-8").useDelimiter("\\A").next();
@@ -68,7 +69,7 @@ public class FileUtils
 		FileInputStream is = new FileInputStream(path);
 		String content = IOUtils.toString(is);
 		is.close();
-		
+
 		return content;
 	}
 
