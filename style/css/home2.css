@@ -1,0 +1,683 @@
+@media screen {
+  .home > article {
+    position: absolute;
+    top: 32px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .home > article > .slide {
+    width: 940px;
+    padding: 0 10px;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .home > article > .slide h2 {
+    border-bottom: 0;
+    padding-top: 0;
+    margin: 0;
+  }
+
+  /* INTRO */
+  #intro {
+    text-align: center;
+  }
+  #intro > div {
+    padding-top: 24px;
+  }
+  .csstransforms #intro > div {
+    padding-top: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+  #intro h1 {
+    position: static;
+    font-size: 84px;
+    font-weight: normal;
+    margin: 0 0 8px 0;
+    padding: 0 48px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    font-family: "UltraRegular", Georgia, sans-serif;
+    color: #000;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  }
+  #intro h2 {
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #999;
+    font-weight: 100;
+    text-shadow: 1px 1px 1px #fff;
+  }
+  #intro hgroup {
+    margin-bottom: 32px;
+  }
+  #intro p {
+    padding-bottom: 10px;
+  }
+  .download, .next, .cta {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .borderradius .download, .borderradius .next, .borderradius .cta {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+  .boxshadow .download, .boxshadow .next, .boxshadow .cta {
+    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  }
+  .boxshadow .download:hover, .boxshadow .download:focus, .boxshadow .next:hover, .boxshadow .next:focus, .boxshadow .cta:hover, .boxshadow .cta:focus {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  .download, .cta {
+    background: #599;
+    padding: 5px 10px;
+    margin-right: 4px;
+    color: #fff;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  }
+  .no-boxshadow .download:hover, .no-boxshadow .download:focus, .no-boxshadow .cta:hover, .no-boxshadow .cta:focus {
+    background: #83b5b5;
+  }
+  .next {
+    background: #ccc;
+    color: #888;
+    padding: 2px 4px;
+    margin: 0 4px;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+  }
+  .no-boxshadow .next:hover, .no-boxshadow .next:focus {
+    background: #83b5b5;
+  }
+  #example-page > div > img {
+    float: right;
+    margin: 5px 10px 16px 30px;
+  }
+  .csstransforms.csstransitions #example-page.deck-next, .csstransforms.csstransitions #example-page.deck-after {
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+  .csstransforms.csstransitions #example-page.deck-next .use-case, .csstransforms.csstransitions #example-page.deck-after .use-case {
+    -webkit-transform: translate3d(-300%, 0, 0);
+    -moz-transform: translate(-300%, 0);
+    -ms-transform: translate(-300%, 0);
+    -o-transform: translate(-300%, 0);
+    transform: translate3d(-300%, 0, 0);
+  }
+  .csstransforms.csstransitions #example-page .use-case .slide {
+    visibility: visible;
+    -webkit-transition: opacity 200ms ease-in-out 0ms;
+    -moz-transition: opacity 200ms ease-in-out 0ms;
+    -ms-transition: opacity 200ms ease-in-out 0ms;
+    -o-transition: opacity 200ms ease-in-out 0ms;
+    transition: opacity 200ms ease-in-out 0ms;
+  }
+  .csstransforms.csstransitions #example-page .use-case .slide.deck-next, .csstransforms.csstransitions #example-page .use-case .slide.deck-after {
+    opacity: 0;
+  }
+  .csstransforms.csstransitions #example-page .use-case {
+    -webkit-transition: -webkit-transform 300ms ease-in-out;
+    -moz-transition: -moz-transform 300ms ease-in-out;
+    -ms-transition: -ms-transform 300ms ease-in-out;
+    -o-transition: -o-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions .on-slide-1 #example-page .use-case {
+    -webkit-transition-delay: 200ms;
+    -moz-transition-delay: 200ms;
+    -ms-transition-delay: 200ms;
+    -o-transition-delay: 200ms;
+    transition-delay: 200ms;
+  }
+  #example-html {
+    text-align: left;
+  }
+  #example-html > pre {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    position: relative;
+    float: left;
+    width: 965px;
+    margin: 0px 0 16px -35px;
+    font-size: 11.5pt;
+  }
+  #example-html > pre:before {
+    position: absolute;
+    content: "";
+    z-index: 2;
+    top: 5px;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 10px / 150px;
+    border-radius: 10px / 150px;
+  }
+  .csstransforms.csstransitions #example-html.deck-next, .csstransforms.csstransitions #example-html.deck-after {
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+  .csstransforms.csstransitions #example-html.deck-next pre, .csstransforms.csstransitions #example-html.deck-after pre {
+    -webkit-transform: translate3d(-300%, 0, 0);
+    -moz-transform: translate(-300%, 0);
+    -ms-transform: translate(-300%, 0);
+    -o-transform: translate(-300%, 0);
+    transform: translate3d(-300%, 0, 0);
+  }
+  .csstransforms.csstransitions #example-html pre .slide {
+    visibility: visible;
+    -webkit-transition: opacity 200ms ease-in-out 0ms;
+    -moz-transition: opacity 200ms ease-in-out 0ms;
+    -ms-transition: opacity 200ms ease-in-out 0ms;
+    -o-transition: opacity 200ms ease-in-out 0ms;
+    transition: opacity 200ms ease-in-out 0ms;
+  }
+  .csstransforms.csstransitions #example-html pre .slide.deck-next, .csstransforms.csstransitions #example-html pre .slide.deck-after {
+    opacity: 0;
+  }
+  .csstransforms.csstransitions #example-html pre {
+    -webkit-transition: -webkit-transform 300ms ease-in-out;
+    -moz-transition: -moz-transform 300ms ease-in-out;
+    -ms-transition: -ms-transform 300ms ease-in-out;
+    -o-transition: -o-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions .on-slide-2 #example-html pre {
+    -webkit-transition-delay: 200ms;
+    -moz-transition-delay: 200ms;
+    -ms-transition-delay: 200ms;
+    -o-transition-delay: 200ms;
+    transition-delay: 200ms;
+  }
+  #example-html-2 {
+    width: 1400px;
+  }
+  #example-html-2 > pre > code {
+    color: #aaa;
+  }
+  #example-html-2 > pre {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    position: relative;
+    float: right;
+    width: 965px;
+    margin: 5px 0 16px 10px;
+    font-size: 11.5pt;
+  }
+  #example-html-2 > pre:before {
+    position: absolute;
+    content: "";
+    z-index: -2;
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 10px / 150px;
+    border-radius: 10px / 150px;
+  }
+  #example-html-2 > h2 {
+    font-family: "UltraRegular", Georgia, serif;
+    font-weight: normal;
+    font-size: 36px;
+    padding: 32px 0 10px 0;
+    color: #000;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  #example-html-2 .sample-content {
+    overflow: hidden;
+    zoom: 1;
+    font-size: 18px;
+    text-shadow: 1px 1px 1px #fff;
+  }
+  #example-html-2 .sample-content > p {
+    margin-bottom: 1em;
+  }
+  #example-html-2 .sample-content > h3 {
+    font-family: "UltraRegular", Georgia, serif;
+    font-size: 24px;
+    color: red;
+  }
+  .csstransforms.csstransitions #example-html-2.deck-next, .csstransforms.csstransitions #example-html-2.deck-after {
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+  .csstransforms.csstransitions #example-html-2.deck-next h2, 
+  .csstransforms.csstransitions #example-html-2.deck-next h3, 
+  .csstransforms.csstransitions #example-html-2.deck-next pre, 
+  .csstransforms.csstransitions #example-html-2.deck-after h2, 
+  .csstransforms.csstransitions #example-html-2.deck-after h3,
+  .csstransforms.csstransitions #example-html-2.deck-after pre {
+    -webkit-transform: translate3d(-300%, 0, 0);
+    -moz-transform: translate(-300%, 0);
+    -ms-transform: translate(-300%, 0);
+    -o-transform: translate(-300%, 0);
+    transform: translate3d(-300%, 0, 0);
+  }
+  .csstransforms.csstransitions #example-html-2 h2, 
+  .csstransforms.csstransitions #example-html-2 h3,
+  .csstransforms.csstransitions #example-html-2 .sample-content {
+    -webkit-transition: -webkit-transform 300ms ease-in-out 200ms;
+    -moz-transition: -moz-transform 300ms ease-in-out 200ms;
+    -ms-transition: -ms-transform 300ms ease-in-out 200ms;
+    -o-transition: -o-transform 300ms ease-in-out 200ms;
+    transition: transform 300ms ease-in-out 200ms;
+  }
+  .csstransforms.csstransitions #example-html-2 .sample-content .slide {
+    /* visibility: visible;*/
+    -webkit-transition: opacity 200ms ease-in-out 0ms;
+    -moz-transition: opacity 200ms ease-in-out 0ms;
+    -ms-transition: opacity 200ms ease-in-out 0ms;
+    -o-transition: opacity 200ms ease-in-out 0ms;
+    transition: opacity 200ms ease-in-out 0ms;
+  }
+  .csstransforms.csstransitions #example-html-2 pre {
+    -webkit-transition: -webkit-transform 300ms ease-in-out;
+    -moz-transition: -moz-transform 300ms ease-in-out;
+    -ms-transition: -ms-transform 300ms ease-in-out;
+    -o-transition: -o-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions .on-slide-3 #example-html-2 pre {
+    -webkit-transition-delay: 200ms;
+    -moz-transition-delay: 200ms;
+    -ms-transition-delay: 200ms;
+    -o-transition-delay: 200ms;
+    transition-delay: 200ms;
+  }
+  #example-html-3 {
+    width: 1300px;
+  }
+  #example-html-3 > pre > code {
+    color: #aaa;
+  }
+  #example-html-3 > pre {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    position: relative;
+    float: right;
+    width: 830px;
+    margin: 5px 0 16px 45px;
+    font-size: 11.5pt;
+  }
+  #example-html-3 > pre:before {
+    position: absolute;
+    content: "";
+    z-index: -2;
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 10px / 150px;
+    border-radius: 10px / 150px;
+  }
+  #example-html-3 > h2 {
+    font-family: "UltraRegular", Georgia, serif;
+    font-weight: normal;
+    font-size: 36px;
+    padding: 32px 0 10px 0;
+    color: #000;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  #example-html-3 .sample-content {
+    overflow: hidden;
+    zoom: 1;
+    font-size: 18px;
+    text-shadow: 1px 1px 1px #fff;
+  }
+  #example-html-3 .sample-content > p {
+    margin-bottom: 1em;
+  }
+  #example-html-3 .sample-content > h3 {
+    font-family: "UltraRegular", Georgia, serif;
+    font-size: 24px;
+    color: red;
+  }
+  #sample > pre > code {
+    color: #aaa;
+  }
+  #sample > pre {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+    position: relative;
+    float: right;
+    width: 450px;
+    margin: 32px 0 16px 30px;
+  }
+  #sample > pre:before {
+    position: absolute;
+    content: "";
+    z-index: -2;
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 10px / 150px;
+    border-radius: 10px / 150px;
+  }
+  #sample > h2 {
+    font-family: "UltraRegular", Georgia, serif;
+    font-weight: normal;
+    font-size: 36px;
+    padding: 42px 0 24px 0;
+    color: #000;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  .on-slide-4 #example-html-2 > pre > code > span.garbage, 
+  .on-slide-5 #example-html-2 > pre > code > span.garbage, 
+  .on-slide-6 #example-html-2 > pre > code > span.garbage, 
+  .on-slide-7 #example-html-2 > pre > code > span.garbage, 
+  .on-slide-8 #example-html-2 > pre > code > span.garbage {
+    opacity: 0;
+    position: absolute;
+    left: -999em;
+    top: -999em;
+  }
+  .on-slide-5 #example-html-2 > pre > code > span.vcard {
+    background: gold;
+  }
+  .on-slide-6 #example-html-2 > pre > code > span.vcard > span.cclass {
+    background: yellow;
+  }
+  .on-slide-8 #example-html-2 > pre > code > span.vcard > span.values {
+    background: yellow;
+  }
+
+  .on-slide-10 #example-html-3 > pre > code > span.css-selector {
+    background: gold;
+  }
+
+  #example-html-3 > pre > code > span.css-selector > span.props {
+    opacity: 0;
+    position: absolute;
+    left: -999em;
+    top: -999em;
+  }
+  .on-slide-11 #example-html-3 > pre > code > span.css-selector > span.props {
+    opacity: 1;
+    position: relative;
+    left: 0em;
+    top: 0em;
+    background: yellow;
+  }
+  .on-slide-12 #example-html-3 > pre > code > span.css-selector > span.props {
+    opacity: 1;
+    position: relative;
+    left: 0em;
+    top: 0em;
+  }
+  .deck-prev-link, .deck-next-link {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    bottom: 38px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    background: #fff;
+    text-align: center;
+    color: #aaa;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+  }
+  #now-what > h2 {
+    font-family: "UltraRegular", Georgia, serif;
+    font-weight: normal;
+    font-size: 36px;
+    padding: 42px 0 24px 0;
+    color: #000;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    z-index: 3;
+  }
+  #now-what > h2:after {
+    content: "";
+    width: 1px;
+    height: 24px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    background: #ddd;
+  }
+  #now-what > p {
+    padding: 42px 0 16px 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  #now-what > p:after {
+    content: "";
+    width: 1px;
+    height: 32px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    background: #ddd;
+  }
+  #now-what > p .download {
+    font-size: 36px;
+    padding: 10px 16px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+  }
+  #now-what .personas {
+    overflow: hidden;
+    zoom: 1;
+    background: #fff;
+    border: 1px solid #eee;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  .boxshadow .personas {
+    -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  .borderradius .personas {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+  #now-what .personas > .slide {
+    width: 25%;
+    padding: 2% 4%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  #now-what .personas h3 {
+    font-weight: 100;
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #aaa;
+  }
+  #now-what .personas p {
+    padding-bottom: 16px;
+  }
+  #now-what #first {
+    float: left;
+    border-right: 1px solid #eee;
+  }
+  #now-what #second {
+    float: right;
+    border-left: 1px solid #eee;
+  }
+  #now-what #in-between {
+    margin: 0 auto;
+  }
+  #now-what #in-between p {
+    padding-bottom: 0;
+  }
+  .csstransforms.csstransitions #intro.deck-previous, .csstransforms.csstransitions #intro.deck-before {
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+  .csstransforms.csstransitions #intro.deck-previous h1, .csstransforms.csstransitions #intro.deck-previous h2, .csstransforms.csstransitions #intro.deck-previous p, .csstransforms.csstransitions #intro.deck-before h1, .csstransforms.csstransitions #intro.deck-before h2, .csstransforms.csstransitions #intro.deck-before p {
+    -webkit-transform: translate3d(-300%, 0, 0);
+    -moz-transform: translate(-300%, 0);
+    -ms-transform: translate(-300%, 0);
+    -o-transform: translate(-300%, 0);
+    transform: translate3d(-300%, 0, 0);
+  }
+  .csstransforms.csstransitions #intro h1 {
+    -webkit-transition: -webkit-transform 300ms ease-in-out;
+    -moz-transition: -moz-transform 300ms ease-in-out;
+    -ms-transition: -ms-transform 300ms ease-in-out;
+    -o-transition: -o-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions #intro h2 {
+    -webkit-transition: -webkit-transform 300ms ease-in-out 100ms;
+    -moz-transition: -moz-transform 300ms ease-in-out 100ms;
+    -ms-transition: -ms-transform 300ms ease-in-out 100ms;
+    -o-transition: -o-transform 300ms ease-in-out 100ms;
+    transition: transform 300ms ease-in-out 100ms;
+  }
+  .csstransforms.csstransitions #intro p {
+    -webkit-transition: -webkit-transform 300ms ease-in-out 200ms;
+    -moz-transition: -moz-transform 300ms ease-in-out 200ms;
+    -ms-transition: -ms-transform 300ms ease-in-out 200ms;
+    -o-transition: -o-transform 300ms ease-in-out 200ms;
+    transition: transform 300ms ease-in-out 200ms;
+  }
+  /* slide start */
+  .csstransforms.csstransitions #now-what.deck-next, .csstransforms.csstransitions #now-what.deck-after {
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+  .csstransforms.csstransitions #now-what.deck-next .personas, .csstransforms.csstransitions #now-what.deck-after .personas {
+    -webkit-transform: translate3d(-300%, 0, 0);
+    -moz-transform: translate(-300%, 0);
+    -ms-transform: translate(-300%, 0);
+    -o-transform: translate(-300%, 0);
+    transform: translate3d(-300%, 0, 0);
+  }
+  .csstransforms.csstransitions #now-what.deck-next h2, .csstransforms.csstransitions #now-what.deck-after h2 {
+    -webkit-transform: translate3d(0, -1000%, 0);
+    -moz-transform: translate(0, -1000%);
+    -ms-transform: translate(0, -1000%);
+    -o-transform: translate(0, -1000%);
+    transform: translate3d(0, -1000%, 0);
+  }
+  .csstransforms.csstransitions #now-what .personas .slide {
+    visibility: visible;
+    -webkit-transition: opacity 200ms ease-in-out 0ms;
+    -moz-transition: opacity 200ms ease-in-out 0ms;
+    -ms-transition: opacity 200ms ease-in-out 0ms;
+    -o-transition: opacity 200ms ease-in-out 0ms;
+    transition: opacity 200ms ease-in-out 0ms;
+  }
+  .csstransforms.csstransitions #now-what .personas .slide.deck-next, .csstransforms.csstransitions #now-what .personas .slide.deck-after {
+    opacity: 0;
+  }
+  .csstransforms.csstransitions #now-what .personas, .csstransforms.csstransitions #now-what h2 {
+    -webkit-transition: -webkit-transform 300ms ease-in-out;
+    -moz-transition: -moz-transform 300ms ease-in-out;
+    -ms-transition: -ms-transform 300ms ease-in-out;
+    -o-transition: -o-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions #now-what > p {
+    left: 0;
+    top: 0;
+    visibility: visible;
+    opacity: 0;
+    -webkit-transition: opacity 300ms ease-in-out 0ms;
+    -moz-transition: opacity 300ms ease-in-out 0ms;
+    -ms-transition: opacity 300ms ease-in-out 0ms;
+    -o-transition: opacity 300ms ease-in-out 0ms;
+    transition: opacity 300ms ease-in-out 0ms;
+  }
+  .csstransforms.csstransitions #now-what > p.deck-current {
+    opacity: 1;
+  }
+  /* delay the entrance*/
+  .csstransforms.csstransitions .on-slide-13 #now-what .personas, .csstransforms.csstransitions .on-slide-13 #now-what h2 {
+    -webkit-transition-delay: 200ms;
+    -moz-transition-delay: 200ms;
+    -ms-transition-delay: 200ms;
+    -o-transition-delay: 200ms;
+    transition-delay: 200ms;
+  }
+  /*.pointerevents.csstransforms.csstransitions .deck-current {
+    z-index: auto;
+  }
+  .pointerevents.csstransforms.csstransitions .deck-after:not(.deck-child-current), .pointerevents.csstransforms.csstransitions .deck-before:not(.deck-child-current), .pointerevents.csstransforms.csstransitions .deck-previous:not(.deck-child-current), .pointerevents.csstransforms.csstransitions .deck-next:not(.deck-child-current) {
+    pointer-events: none;
+  }
+  .pointerevents.csstransforms.csstransitions .deck-child-current .deck-before, .pointerevents.csstransforms.csstransitions .deck-child-current .deck-previous {
+    pointer-events: auto;
+  }
+
+  .no-pointerevents.csstransforms.csstransitions .deck-current, .no-pointerevents.csstransforms.csstransitions .deck-child-current {
+    z-index: 4;
+  }
+*/
+  .slide .slide {
+    min-height: 0;
+    height: auto;
+  }
+
+  .goto-form, .deck-prev-link, .deck-next-link, .deck-status {
+    display: none;
+  }
+}
+
+  

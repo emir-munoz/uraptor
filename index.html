@@ -1,93 +1,406 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>LD4IE Challenge: μRaptor</title>
 
-    <title>Uraptor by emir-munoz</title>
-  </head>
+    <meta name="description" content="LD4IE Challenge at ISWC 2014">
+    <meta name="author" content="Emir Muñoz">
+    <meta name="viewport" content="width=1024">
+    <!-- <meta name="viewport" content="width=1024, user-scalable=no"> -->
 
-  <body>
-    <header>
-      <div class="inner">
-        <h1>Uraptor</h1>
-        <h2>μRaptor: A DOM based system with appetite for hCard elements</h2>
-        <a href="https://github.com/emir-munoz/uraptor" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+    <!-- Required stylesheet -->
+    <link rel="stylesheet" media="screen" href="core/deck.core.css">
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" media="screen" href="style/css/common.css">
+    <!-- <link rel="stylesheet" media="screen" href="style/css/home.css"> -->
+    <link rel="stylesheet" media="screen" href="style/css/home2.css">
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+    <!-- Extension CSS files go here. Remove or add as needed. -->
+    <!--   <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+    <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+    <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+    <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+    <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+    -->
+    <!-- Style theme. More available in /themes/style/ or create your own. -->
+    <!-- <link rel="stylesheet" media="screen" href="themes/style/swiss.css"> -->
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+    <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+    <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+    <!-- Basic black and white print styles -->
+    <link rel="stylesheet" media="print" href="core/print.css">
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+    <!-- Required Modernizr file -->
+    <script src="libs/modernizr.custom.js"></script>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="libs/highlight.js/styles/github.css">
+    <script src="libs/highlight.js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</head>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<body class="home">
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<header>
+    <nav>
+        <h1><a href="https://github.com/emir-munoz/uraptor">μRaptor</a></h1>
+        <ul>
+            <li><a href="http://data.dws.informatik.uni-mannheim.de/LD4IE/">LD4IE 2014 Challenge</a></li>
+            <li><a href="http://iswc2014.semanticweb.org/">ISWC 2014</a></li>
+            <li><a href="http://ie.fujitsu.com">Fujitsu</a></li>
+        </ul>
+    </nav>
+</header>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<article class="on-slide-intro on-slide-0">
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+    <!-- First slide. -->
+    <section class="slide" id="intro">
+        <div>
+            <hgroup>
+                <h1>μRaptor: A DOM-based system with appetite for hCard elements</h1>
+                <h2>Emir Muñoz, Luca Costabello, Pierre-Yves Vandenbussche</h2>
+            </hgroup>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
+            <p>
+                <a href="https://github.com/emir-munoz/uraptor/archive/master.zip" class="download"><img src="style/images/octocat-icon.png">GitHub</img></a>
+            </p>
+        </div>
+    </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/emir-munoz/uraptor/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/emir-munoz/uraptor/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+    <!-- Second slide. -->
+    <section class="slide" id="example-page">
+        <div class="use-case">
+            <img src="style/images/screenshot.png" alt="vCard example" width="99%"/>
+        </div>
+    </section>
 
-          <p class="repo-owner"><a href="https://github.com/emir-munoz/uraptor"></a> is maintained by <a href="https://github.com/emir-munoz">emir-munoz</a>.</p>
+    <!-- Third slide. -->
+    <section class="slide html" id="example-html">
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html class=&quot;no-js&quot; lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+     &lt;title&gt;Search Results for&hellip; &lt;/title&gt;
+     &lt;meta name=&quot;description&quot; content=&quot;Results for&hellip;&quot;&gt;
+     &lt;link rel=&quot;shortcut icon&quot; href=&quot;/local/images/favicon.ico&quot; type=&quot;image/ico&quot; /&gt;
+      &lt;style&gt; &hellip; &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;find-a-physician page-app physicians unified interior&quot;&gt;
+     &lt;div id=&quot;page-wrap&quot; itemscope itemtype=&quot;http://schema.org/Place&quot; itemid=&quot;http://schema.org/Hospital&quot;&gt;
+        &lt;!--[if lte IE 7]&gt; &lt;div id=&quot;lt-ie-8-warning&quot;&gt;
+           &lt;h1&gt;You are using an outdated browser&lt;/h1&gt; &hellip;
+        &lt;/div&gt;
+        &lt;script&gt; function hide_message(){ &hellip; } &lt;/script&gt; &lt;![endif]--&gt;
+        &lt;div id=&quot;page&quot; class=&quot;clearfix&quot;&gt;
+           &hellip;
+        &lt;/div&gt;
+        &lt;!-- /page --&gt;
+        &lt;div id=&quot;footer-wrap&quot; class=&quot;clearfix&quot;&gt;
+           &lt;footer &gt;
+              &lt;section class=&quot;row site-info content-inline clearfix style-1&quot;&gt;
+                 &lt;div class=&quot;vcard author&quot;&gt;
+                    &lt;a href=&quot;/home/&quot;&gt;
+                    &lt;img src=&quot;/contentAsset/raw-data/6a390782-1ca3-44c3-b463-068816ba0fc5/knockOutLogo&quot; 
+                         alt=&quot;Alaska Regional Hospital&quot; class=&quot;logo&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;meta itemprop=&quot;url&quot; content=&quot;http://alaskaregional.com&quot; /&gt;
+                    &lt;header itemprop=&quot;name&quot; class=&quot;fn org&quot;&gt;Alaska Regional Hospital&lt;/header&gt;
+                    &lt;div class=&quot;contact-info&quot;&gt;
+                       &lt;div itemprop=&quot;address&quot; itemscope itemtype=&quot;http://schema.org/PostalAddress&quot; class=&quot;adr&quot;&gt;
+                          &lt;span class=&quot;address1 street-address&quot; itemprop=&quot;streetAddress&quot;&gt;2801 DeBarr Road&lt;/span&gt;
+                          &lt;span class=&quot;city locality&quot; itemprop=&quot;addressLocality&quot;&gt;Anchorage&lt;/span&gt;,
+                          &lt;span class=&quot;state region&quot; itemprop=&quot;addressRegion&quot;&gt;AK&lt;/span&gt;
+                          &lt;span class=&quot;zip postal-code&quot; itemprop=&quot;postalCode&quot;&gt;99508&lt;/span&gt;
+                       &lt;/div&gt;
+                       &lt;div class=&quot;contacts&quot;&gt;
+                          &lt;span class=&quot;tel&quot; itemprop=&quot;telephone&quot;&gt;Phone: (907) 276-1131&lt;/span&gt;&lt;br /&gt;
+                          &lt;a href=&quot;/about/contact.dot&quot;&gt;Contact Us&lt;/a&gt;
+                       &lt;/div&gt;
+                    &lt;/div&gt;
+                 &lt;/div&gt;
+              &lt;/section&gt;
+           &lt;/footer&gt;
+        &lt;/div&gt;
+        &lt;!-- /footer-wrap --&gt;
+     &lt;/div&gt;
+     &lt;!-- end page-wrap --&gt;
+     &lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.com/jsapi&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
 
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+    <!-- Fourth slide. -->
+    <section class="slide html" id="example-html-2">
+        <pre><code><span class="garbage">&lt;!DOCTYPE html&gt;
+</span>&lt;html class=&quot;no-js&quot; lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+     &lt;title&gt;Search Results for&hellip; &lt;/title&gt;<span class="garbage">
+     &lt;meta name=&quot;description&quot; content=&quot;Results for&hellip;&quot;&gt;
+     &lt;link rel=&quot;shortcut icon&quot; href=&quot;/local/images/favicon.ico&quot; type=&quot;image/ico&quot; /&gt;
+     &lt;style&gt; &hellip; &lt;/style&gt;</span>
+  &lt;/head&gt;
+  &lt;body class=&quot;find-a-physician page-app physicians unified interior&quot;&gt;
+     &lt;div<span class="garbage"> id=&quot;page-wrap&quot; itemscope itemtype=&quot;http://schema.org/Place&quot; itemid=&quot;http://schema.org/Hospital&quot;</span>&gt;<span class="garbage">
+        &lt;!--[if lte IE 7]&gt; &lt;div id=&quot;lt-ie-8-warning&quot;&gt;
+           &lt;h1&gt;You are using an outdated browser&lt;/h1&gt; &hellip;
+        &lt;/div&gt;
+        &lt;script&gt; function hide_message(){ &hellip; } &lt;/script&gt; &lt;![endif]--&gt;</span>
+        &lt;div id=&quot;page&quot; class=&quot;clearfix&quot;&gt;
+           &hellip;
+        &lt;/div&gt;<span class="garbage">
+        &lt;!-- /page --&gt;</span>
+        &lt;div id=&quot;footer-wrap&quot; class=&quot;clearfix&quot;&gt;
+           &lt;footer&gt;
+              &lt;section class=&quot;row site-info content-inline clearfix style-1&quot;&gt;
+                 <span class="vcard">&lt;div class=&quot;vcard <span class="cclass">author</span>&quot;&gt;
+                    &lt;a href=&quot;/home/&quot;&gt;
+                    &lt;img src=&quot;/contentAsset/raw-data/6a390782-1ca3-44c3-b463-068816ba0fc5/knockOutLogo&quot; 
+                         alt=&quot;Alaska Regional Hospital&quot; class=&quot;logo&quot;&gt;
+                    &lt;/a&gt;
+                    &lt;meta itemprop=&quot;url&quot; content=&quot;http://alaskaregional.com&quot; /&gt;
+                    &lt;header itemprop=&quot;name&quot; class=&quot;fn org&quot;&gt;<span class="values">Alaska Regional Hospital</span>&lt;/header&gt;
+                    &lt;div class=&quot;contact-info&quot;&gt;
+                       &lt;div itemprop=&quot;address&quot; itemscope itemtype=&quot;http://schema.org/PostalAddress&quot; class=&quot;adr&quot;&gt;
+                          &lt;span class=&quot;address1 street-address&quot; itemprop=&quot;streetAddress&quot;&gt;<span class="values">2801 DeBarr Road</span>&lt;/span&gt;
+                          &lt;span class=&quot;city locality&quot; itemprop=&quot;addressLocality&quot;&gt;<span class="values">Anchorage</span>&lt;/span&gt;,
+                          &lt;span class=&quot;state region&quot; itemprop=&quot;addressRegion&quot;&gt;<span class="values">AK</span>&lt;/span&gt;
+                          &lt;span class=&quot;zip postal-code&quot; itemprop=&quot;postalCode&quot;&gt;<span class="values">99508</span>&lt;/span&gt;
+                       &lt;/div&gt;
+                       &lt;div class=&quot;contacts&quot;&gt;
+                          &lt;span class=&quot;tel&quot; itemprop=&quot;telephone&quot;&gt;<span class="values">Phone: (907) 276-1131</span>&lt;/span&gt;&lt;br /&gt;
+                          &lt;a href=&quot;/about/contact.dot&quot;&gt;Contact Us&lt;/a&gt;
+                       &lt;/div&gt;
+                    &lt;/div&gt;
+                 &lt;/div&gt;</span>
+              &lt;/section&gt;
+           &lt;/footer&gt;
+        &lt;/div&gt;<span class="garbage">
+        &lt;!-- /footer-wrap --&gt;</span>
+     &lt;/div&gt;<span class="garbage">
+     &lt;!-- end page-wrap --&gt;
+     &lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.com/jsapi&quot;&gt;&lt;/script&gt;</span>
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h2>μRaptor in Action</h2>
+
+        <div class="sample-content">
+            <p><h3>Training Phase:</h3></p>
+            <p class="slide" id="clean-html">0) Clean the HTML.</p>
+            <p class="slide" id="dom-patterns">1) hCard DOM sub-trees extraction.</p>
+            <p class="slide" id="css-classes">2) CSS class co-occurrence.</p>
+            <p class="slide" id="css-selectors">3) DOM patterns to CSS selectors.
+                <img src="style/images/sample-DOM-2-CSS-h.png" width="375px" />
+            </p>
+            <p class="slide" id="prop-rules">4) hCard element value constraints.
+                <br /><span>ZIP code: <br /><b><code style="font-size: 130%;">^[0-9]{5}(-[0-9]{4})?$</code></b></span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Fifth slide. -->
+    <section class="slide html" id="example-html-3">
+        <pre><code><span class="garbage">&lt;!DOCTYPE html&gt;    &lt;!-- NEW BOOK STORE WEBPAGE --&gt;
+</span>&lt;html lang=&quot;en&quot;&gt;
+   &lt;head&gt;
+      &lt;title&gt;Irish News&hellip; &lt;/title&gt;<span class="garbage">
+      &lt;meta name=&quot;description&quot; content=&quot;News from Ireland&hellip;&quot;&gt;
+      &lt;link rel=&quot;shortcut icon&quot; href=&quot;img/favicon.ico&quot; type=&quot;image/ico&quot; /&gt;
+      &lt;style&gt; &hellip; &lt;/style&gt;</span>
+   &lt;/head&gt;
+   &lt;body class=&quot;page-app home&quot;&gt;
+      &lt;div id=&quot;page-wrap&quot;&gt;
+         &lt;div id=&quot;page&quot; class=&quot;clearfix&quot;&gt;
+            &hellip;
+         &lt;/div&gt;
+         &lt;div id=&quot;footer-wrap&quot; class=&quot;clearfix&quot;&gt;
+            &lt;footer&gt;
+               &lt;section class=&quot;row site-info content-inline clearfix style-1&quot;&gt;
+                  <span class="css-selector">&lt;div class=&quot;<span class="props">vcard </span>author&quot;&gt;
+                     &lt;a href=&quot;/home/&quot;&gt;&lt;img src=&quot;Logo.png&quot; alt=&quot;Book Store&quot;<span class="props"> class=&quot;logo&quot;</span>&gt;&lt;/a&gt;
+                     &lt;a<span class="props"> class=&quot;url&quot;</span> href=&quot;http://booksgalway.ie&quot;&gt;Website&lt;/a&gt;
+                     &lt;header<span class="props"> class=&quot;fn org&quot;</span>&gt;Book Store Galway&lt;/header&gt;
+                     &lt;div class=&quot;contact-info&quot;&gt;
+                        &lt;div<span class="props"> class=&quot;adr&quot;</span>&gt;
+                           &lt;span class=&quot;address1<span class="props"> street-address</span>&quot;&gt;28 Shop Street&lt;/span&gt;
+                           &lt;span class=&quot;city<span class="props"> locality</span>&quot;&gt;Galway&lt;/span&gt;,
+                           &lt;span class=&quot;state<span class="props"> region</span>&quot;&gt;Co. Galway&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;contacts&quot;&gt;
+                           &lt;span<span class="props"> class=&quot;tel&quot;</span>&gt;Phone: +(353) 091-1234569&lt;/span&gt;&lt;br /&gt;
+                           &lt;a href=&quot;/contact-us.dot&quot;&gt;Contact Us&lt;/a&gt;
+                        &lt;/div&gt;
+                     &lt;/div&gt;
+                  &lt;/div&gt;</span>
+                  &lt;div id=&quot;about_sub&quot; class=&quot;accordion-body collapse&quot;&gt;
+                     &lt;div class=&quot;accordion-inner&quot;&gt;
+                        &lt;ul class=&quot;submenu&quot;&gt;
+                           &lt;li&gt;
+                              &lt;a href=&quot;/contact-us.dot&quot;&gt;Contact Us&lt;/a&gt;
+                           &lt;/li&gt; &hellip;
+                        &lt;/ul&gt;
+                     &lt;/div&gt;
+                     &lt;!-- / .submenu --&gt;
+                  &lt;/div&gt;
+               &lt;/section&gt;
+            &lt;/footer&gt;
+         &lt;/div&gt;
+         &lt;!-- /footer-wrap --&gt;
+      &lt;/div&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.com/jsapi&quot;&gt;&lt;/script&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h2>μRaptor in Action</h2>
+
+        <div class="sample-content">
+            <p><h3>Training Phase:</h3></p>
+            <p>0) Clean the HTML.</p>
+            <p>1) hCard DOM sub-trees extraction.</p>
+            <p>2) CSS class co-occurrence.</p>
+            <p>3) DOM patterns to CSS selectors.
+                <img src="style/images/sample-DOM-2-CSS-h.png" width="375px" />
+            </p>
+            <p>4) hCard element value constraints.
+                <br /><span>ZIP code: <br /><b><code style="font-size: 130%;">^[0-9]{5}(-[0-9]{4})?$</code></b></span>
+            </p>
+            <p><h3>Extraction Phase:</h3></p>
+            <p class="slide" id="pattern-detection">5) hCard DOM pattern detection.
+                <br /><b><code style="font-size: 130%;">div.author &gt; div &gt; div &gt; span</code></b>
+            </p>
+            <p class="slide" id="hcard-qualification">6) hCard elements qualification.</p>
+            <p class="slide" id="validation">7) System validation. <br />
+              RDF models comparison using <a href="http://any23.org/">Apache Any23</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sixth slide. -->
+    <section class="slide" id="now-what">
+        <h2>Conclusions</h2>
+
+        <div class="personas">
+            <div class="slide" id="first">
+                <h3>hCard in the wild</h3>
+                <p>
+                  <ul>
+                    <li>they are very used</li>
+                    <li>but not properly used</li>
+                    <li>long tail distribution</li>
+                    <li>incompleteness</li>
+                  </ul>
+                </p>
+            </div>
+
+            <div class="slide" id="second">
+                <h3>Evaluation</h3>
+                <p> $A=\{\text{gold standard}\}$, $B=\{\mu Raptor\}$
+                  <ul>
+                    <li>$P=\frac{|A|\cap|B|}{|B|}$</li>
+                    <li>$R=\frac{|A|\cap|B|}{|A|}$</li>
+                    <li>$F_1=\frac{2 PR}{P+R}$</li>
+                  </ul>
+                </p>
+            </div>
+
+            <div class="slide" id="in-between">
+                <h3>μRaptor Results</h3>
+                <p>with only 30 rules:
+                  <ul>
+                    <li>Precision = <span style="color:green;">0.94</span></li>
+                    <li>Recall = <span style="color:green;">0.7</span></li>
+                    <li>F-1 score = <span style="color:green;">0.8</span></li>
+                  </ul>
+                </p>
+            </div>
+        </div>
+
+        <p class="slide" id="download-now">
+          Contact us: <a href="https://github.com/emir-munoz">@Emir</a>, <a href="https://github.com/lukostaz">@Luca</a>, <a href="https://github.com/pyvandenbussche">@Pierre-Yves</a> <br /><br />
+          <a href="https://github.com/emir-munoz/uraptor" class="download"><img src="style/images/octocat-icon.png">GitHub</img></a>
+        </p>
+    </section>
+
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+        <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+        <a href="#" class="deck-next-link" title="Next">&#8594;</a>
     </div>
 
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-48858636-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+    <!-- deck.status snippet -->
+    <p class="deck-status">
+        <span class="deck-status-current"></span>
+        /
+        <span class="deck-status-total"></span>
+    </p>
 
-  </body>
-</html>
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+        <label for="goto-slide">Go to slide:</label>
+        <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+        <datalist id="goto-datalist"></datalist>
+        <input type="submit" value="Go">
+    </form>
+
+    <!-- End extension snippets. -->
+</article>
+
+<footer>
+    <p><span class="version">Linked Data for Information Extraction Challenge</span>Riva del Garda, Trentino, Italy -- 20/10/2014</p>
+</footer>
+
+<!-- Required JS files. -->
+<script src="libs/jquery.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<!-- <script src="extensions/scale/deck.scale.js"></script> -->
+
+<!-- MathJax -->
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+  $(function() {
+	$.deck('.slide', {
+	  selectors: {
+		container: 'body > article'
+	  },
+	
+	  keys: {
+		goto: -1 // No key activation
+	  }
+	});
+  
+	Modernizr.addTest('pointerevents',function(){
+	  return document.documentElement.style.pointerEvents === '';
+	});
+  });
+</script>
+
+</body>
+</html> 
