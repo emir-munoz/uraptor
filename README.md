@@ -89,3 +89,4 @@ GNU General Public License v3.0
 Supports Java 1.7.
 
 [![Build status](https://travis-ci.org/emir-munoz/uraptor.svg?branch=master)](https://travis-ci.org/emir-munoz/uraptor)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/4237/badge.svg)](https://scan.coverity.com/projects/4237)
